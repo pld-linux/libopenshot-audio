@@ -1,0 +1,11 @@
+--- libopenshot-audio-0.1.2/CMakeLists.txt~	2016-08-30 06:24:27.000000000 +0200
++++ libopenshot-audio-0.1.2/CMakeLists.txt	2016-11-30 13:13:36.208134428 +0100
+@@ -169,7 +169,7 @@ set_target_properties(openshot-audio
+ 			INSTALL_NAME_DIR "${CMAKE_INSTALL_PREFIX}/lib")
+ 
+ TARGET_LINK_LIBRARIES(openshot-audio
+-	${JUCE_PLATFORM_SPECIFIC_LIBRARIES}
++	${JUCE_PLATFORM_SPECIFIC_LIBRARIES} pthread dl
+ )
+ 
+ # PROCESS SUB-DIRECTORIES
