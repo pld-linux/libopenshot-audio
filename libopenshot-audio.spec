@@ -1,12 +1,12 @@
 Summary:	Audio library used by OpenShot
 Name:		libopenshot-audio
-Version:	0.1.2
+Version:	0.1.4
 Release:	1
 License:	GPL v3+
 Group:		Libraries
 URL:		http://openshot.org/
 Source0:	https://github.com/OpenShot/libopenshot-audio/archive/v%{version}.tar.gz
-# Source0-md5:	f002b5cdaf91cdd7f482b528da5e02be
+# Source0-md5:	463ca9dcfea111a470707bfeed655590
 Patch0:		%{name}-build.patch
 BuildRequires:	alsa-lib-devel
 BuildRequires:	cmake
@@ -56,7 +56,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS README
 %attr(755,root,root) %{_libdir}/libopenshot-audio.so.*.*
-%attr(755,root,root) %ghost %{_libdir}/libopenshot-audio.so.3
+%attr(755,root,root) %ghost %{_libdir}/libopenshot-audio.so.5
 
 %files devel
 %defattr(644,root,root,755)
