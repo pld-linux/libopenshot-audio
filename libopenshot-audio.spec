@@ -1,12 +1,12 @@
 Summary:	Audio library used by OpenShot
 Name:		libopenshot-audio
-Version:	0.1.6
+Version:	0.3.3
 Release:	1
 License:	GPL v3+
 Group:		Libraries
 URL:		http://openshot.org/
-Source0:	https://github.com/OpenShot/libopenshot-audio/archive/v%{version}.tar.gz
-# Source0-md5:	4e5b78acf7cae3dbcf07107c66f8fab8
+Source0:	https://github.com/OpenShot/libopenshot-audio/archive/v%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	09cb1afa4f6243f10d23dd9789d6a852
 BuildRequires:	alsa-lib-devel
 BuildRequires:	cmake
 BuildRequires:	freetype-devel
@@ -44,6 +44,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+# Looks like some Java junk
+%{__rm} -rf $RPM_BUILD_ROOT%{_docdir}/API
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -52,13 +55,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS README
+%doc AUTHORS README.md
 %attr(755,root,root) %{_libdir}/libopenshot-audio.so.*.*
-%attr(755,root,root) %ghost %{_libdir}/libopenshot-audio.so.6
+%attr(755,root,root) %ghost %{_libdir}/libopenshot-audio.so.9
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/openshot-audio-test-sound
+%{_libdir}/cmake/OpenShotAudio
 %{_includedir}/%{name}
 %attr(755,root,root) %{_libdir}/libopenshot-audio.so
-%{_mandir}/man1/openshot-audio-test-sound.1*
+%attr(755,root,root) %{_bindir}/openshot-audio-demo
+%{_mandir}/man1/openshot-audio-demo.1*
